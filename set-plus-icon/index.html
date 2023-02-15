@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setPlusIcon</title>
+    <style>
+      li {
+        padding-left: 5px;
+      }
+      a + ul.drop-list {
+        display: none;
+      }
+      a + ul.drop-list.open {
+        display: block;
+      }
+      li.drop-list-trigger {
+        list-style-type: '[+]';
+      }
+    </style>
+  </head>
+  <body>
+    <a href="../">back</a>
+
+    <main>
+      <h3>Товары</h3>
+      <ul>
+        <li>
+          <a href="#">Бытовые</a>
+          <ul class="drop-list">
+            <li>
+              <a href="#">Для сада</a>
+            </li>
+            <li>
+              <a href="#">Для дома</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Техника</a>
+          <ul class="drop-list">
+            <li>
+              <a href="#">Специолизированная</a>
+            </li>
+            <li>
+              <a href="#">Для дома</a>
+              <ul class="drop-list">
+                <li>
+                  <a href="#">Химия</a>
+                </li>
+                <li>
+                  <a href="#">Техника</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Остальное</a>
+        </li>
+      </ul>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
