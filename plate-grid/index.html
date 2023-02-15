@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plate Grid IE8+</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      .container .item {
+        height: 100px;
+        background: rgb(2, 0, 36) linear-gradient(90deg, darkolivegreen, green);
+        border: 2px solid silver;
+      }
+
+      .container .item:nth-child(3n) {
+        float: right;
+      }
+
+      .container .item:nth-child(3n - 1) {
+        margin-left: 5%;
+        float: right;
+      }
+
+      .container .item:last-child {
+        float: right;
+      }
+
+      .container .item:nth-child(3n - 2) {
+        float: left;
+      }
+
+      .plate {
+        width: 100% !important;
+      }
+
+      button {
+        font-size: 18px;
+        padding: 5px 15px;
+      }
+
+      @media (min-width: 1025px) {
+        .container .item {
+          width: 30%;
+        }
+      }
+
+      @media (min-width: 768px) and (max-width: 1024px) {
+        .container .item {
+          width: 45%;
+        }
+
+        .container .item:nth-child(even) {
+          float: left !important;
+        }
+
+        .container .item:nth-child(odd) {
+          float: right !important;
+        }
+        .container .item:nth-child(3n - 1) {
+          margin-left: 0;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .container .item {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2>Grid</h2>
+      <button id="add">Show More</button>
+      <button id="switcher">Plate</button>
+      <div class="container">
+        <div class="item">item</div>
+        <div class="item">item</div>
+        <div class="item">item</div>
+        <div class="item">item</div>
+        <div class="item">item</div>
+        <div class="item">item</div>
+        <div class="item">item</div>
+      </div>
+    </div>
+    <script>
+      var container = document.getElementsByClassName('container')
+      var xmlhttp = new XMLHttpRequest()
+
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+          if (xmlhttp.status == 200) {
+            container[0].insertAdjacentHTML(
+              'beforeend',
+              JSON.parse(xmlhttp.responseText).html,
+            )
+          }
+        }
+      }
+
+      add.onclick = function () {
+        xmlhttp.open('GET', 'more.php', true)
+        xmlhttp.send()
+      }
+
+      switcher.onclick = function (event) {
+        var elements = document.getElementsByClassName('item')
+        var isPlate = document.getElementsByClassName('plate').length > 0
+        var current = event.target.innerText
+
+        event.target.innerText =
+          event.target.innerText == 'Grid' ? 'Plate' : 'Grid'
+
+        var i = 0
+        var m = elements.length
+        while (i < m) {
+          if (!isPlate) {
+            elements[i].classList.add('plate')
+          } else {
+            elements[i].classList.remove('plate')
+          }
+          i++
+        }
+      }
+    </script>
+  </body>
+</html>
