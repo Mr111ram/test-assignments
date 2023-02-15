@@ -1,0 +1,9 @@
+{
+  "name": "test-assignments",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "php -S localhost:8080"
+  },
+  "author": "Kirill Katelyanets",
+  "license": "ISC"
+}

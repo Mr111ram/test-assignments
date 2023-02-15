@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validation</title>
+    <script src="validation.js"></script>
+    <style>
+      h2 {
+        text-align: center;
+      }
+      form {
+        width: 300px;
+      }
+      label {
+        display: flex;
+        width: 300px;
+        margin: 5px 0;
+        justify-content: space-between;
+      }
+      input {
+        margin-left: 25px;
+        width: 100%;
+        display: inline-block;
+        border: 2px solid silver;
+        border-radius: 3px;
+      }
+      button {
+        width: 100%;
+      }
+      input[data-status='false'] {
+        border: 2px solid crimson;
+        outline-color: crimson;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="../">back</a>
+    <form id="form">
+      <h2>Form</h2>
+      <label>
+        Not Required Text:
+        <input type="text" data-validate="text" data-required="false" />
+      </label>
+      <label>
+        Required Text:
+        <input type="text" data-validate="text" data-required="true" />
+      </label>
+      <label>
+        Not Required Phone:
+        <input type="phone" data-validate="phone" data-required="false" />
+      </label>
+      <label>
+        Required Phone:
+        <input type="phone" data-validate="phone" data-required="true" />
+      </label>
+      <label>
+        Not Required Email:
+        <input type="email" data-validate="email" data-required="false" />
+      </label>
+      <label>
+        Required Email:
+        <input type="email" data-validate="email" data-required="true" />
+      </label>
+      <button type="submit" disabled>Submit</button>
+    </form>
+    <script>
+      validateForm('#form')
+    </script>
+  </body>
+</html>
