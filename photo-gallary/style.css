@@ -1,0 +1,34 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+header div {
+  padding: 15px 20px;
+}
+
+.gallery {
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.gallery .image {
+  flex-grow: 1;
+  flex-shrink: 1;
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
+  height: 100%;
+}
